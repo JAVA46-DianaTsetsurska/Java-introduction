@@ -9,23 +9,26 @@ public static boolean hasValidBrackets(String text) {
 		int temp = brackets.indexOf(text.charAt(i));
 		if(temp >= 0 && temp <=2) {
 			findPair.append(text.charAt(i));
-			if(temp > 2) {
-			res =  findPair.length() == 0 || findPair.charAt(findPair.length() - 1) != brackets.indexOf(temp - 3) ? 
-					false : matchPair(findPair);
-							}
-			return res;
+		}
+		if(temp > 2 ) {
+			res = findPair.length() == 0 ? false : matchPair(findPair, brackets, temp);	
+			
+		}
+		if(!res)
+			return false;
 			
 			}
-		}
-	
-	if (findPair.length() != 0)
-		return false;
-	return true;
+		
+return findPair.length() == 0 ?  true : false; 
+
 }
 
 
-private static boolean matchPair(StringBuilder findPair) {
-	findPair.deleteCharAt(findPair.length() - 1);
+private static boolean matchPair(StringBuilder findPair, String brackets, int temp) {
+	if(findPair.charAt(findPair.length() - 1) == brackets.indexOf(temp - 3))
+	{findPair.deleteCharAt(findPair.length() - 1);
 	return true;
+	}
+	return false;
 }
 }

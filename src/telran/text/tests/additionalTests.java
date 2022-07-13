@@ -10,7 +10,7 @@ class additionalTests {
 
 	@Test
 	void hasValidBracketsTest() {
-		assertTrue(additional.hasValidBrackets("aaaaaa (sdfsdfdsf[dfd(f)f] zcvzxcv {{[ghjk]}} asd )"));
+		assertTrue(additional.hasValidBrackets("{{[ghjk]}}"));
 		assertFalse(additional.hasValidBrackets("()dfgswfgsf)"));
 		assertFalse(additional.hasValidBrackets("[werwert(wertwrtw] wertrt)"));
 		assertFalse(additional.hasValidBrackets("aaaaaa (sdfsdfdsf[dfd(f)f] zcvzxcv {{[ghjk]}} asd ){"));
